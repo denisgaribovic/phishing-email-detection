@@ -1,36 +1,98 @@
 ![alt text](https://raw.githubusercontent.com/denisgaribovic/phishing-email-detection/main/Banner.png)
 
-# 🛡️📧 Phishing Email Detection
+# 🛡️ Phishing Email Detection
 
-## What’s This Project About?
+A production-ready machine learning pipeline that detects phishing emails using both natural language processing (NLP) and metadata-based features. This project simulates how security teams can **automate email threat detection**, minimize human error, and strengthen cybersecurity defenses — powered by interpretable, scalable models.
 
-This project focuses on **detecting phishing emails** — those tricky emails that try to fool people into giving away passwords, credit card info, or clicking harmful links. Phishing is a big cybersecurity threat that can cause identity theft, money loss, and damage to companies’ reputations.
+---
 
-## 📚 About the Dataset 
+## ✨ Highlights
 
-The dataset used here is the **CEAS 2008 Email Dataset (CEAS_08)**, a well-known collection of emails for phishing research. It contains thousands of emails, both **phishing** and **legitimate** (safe), labeled for training machine learning models.  
+- 📬 Analyzed thousands of labeled emails from the [CEAS 2008 Phishing Dataset](https://www.kaggle.com/datasets/naserabdullahalam/phishing-email-dataset)
+- 🧠 Combined TF-IDF text vectors with custom-engineered metadata features
+- ⚖️ Trained and optimized a Logistic Regression classifier using GridSearchCV
+- 📊 Evaluated with Precision, Recall, F1 Score, and ROC AUC to handle imbalanced classes
+- 🔍 Visualized top phishing keywords, URL domains, and sender patterns
+- 🧩 Modular and extensible — adaptable for modern SOC and email filtering systems
 
-Each email in the dataset includes:  
-- The raw email text (including headers and body)  
-- Labels marking whether the email is phishing or not  
-- Extracted metadata like sender email address, URLs found in the email, and domains of those URLs
+---
 
-You can learn more about this dataset here: [CEAS 2008 Dataset Details](https://www.kaggle.com/datasets/naserabdullahalam/phishing-email-dataset)  
+## 🎯 Business Context
 
-This dataset provides a rich variety of examples to help models learn what makes phishing emails different from real ones.
+Phishing remains one of the **top cybersecurity threats**, used to trick users into exposing credentials or downloading malware. Detecting these attacks early helps organizations:
 
-## 🎯 The Goal 
+- 🛡️ Prevent data breaches, identity theft, and financial fraud  
+- 📉 Reduce incident response time and SOC workload  
+- 🔐 Enhance email security with ML-powered automation  
+- 💡 Train users and improve awareness with real-world examples
 
-The main aim is to create a **machine learning model** that can automatically detect phishing emails by analyzing their content and metadata. This means:  
-- Helping users and companies block phishing before harm is done  
-- Protecting personal and financial information  
-- Saving time by automating email security  
-- Enhancing existing email filtering and cybersecurity systems
+This project provides a practical, lightweight solution that can be integrated into existing **email gateways**, **alerting pipelines**, or **user awareness platforms** like KnowBe4.
 
-## 💼 Why This Matters for Business 
+---
 
-- **Prevents phishing attacks** before they reach employees or customers  
-- **Reduces financial loss and fraud risk** by catching scams early  
-- **Increases trust and safety** in company communications  
-- **Saves time and costs** by automating email threat detection  
-- **Can be integrated** with email gateways, security platforms, or customer support tools to boost protection
+## 🔐 Real-World Applications
+
+This model can be adapted or extended to power:
+
+- ✅ Email security filters (pre-screening for SOC teams)
+- 🧠 Threat triage dashboards (e.g. custom internal tools)
+- 🧪 Research into phishing tactics and social engineering
+- 🎓 Awareness training with realistic phishing examples
+
+---
+
+## 📚 Dataset Overview
+
+We used the **CEAS 2008 Email Dataset**, a benchmark dataset for phishing research. It contains a mix of phishing and legitimate emails, with real headers, body text, and links.
+
+Key features engineered from each email:
+
+| Feature | Description |
+|--------|-------------|
+| `email_text` | Raw subject + body content of the email |
+| `sender_domain` | Extracted from the `From` field |
+| `url_domains` | Domains of all URLs found in the message |
+| `url_count` | Number of URLs in the email |
+| `keyword_count` | Frequency of suspicious terms (e.g. "urgent", "verify") |
+
+---
+
+## 🛠️ Project Workflow
+
+### 1. 📥 Data Preparation
+
+- Loaded and cleaned raw email text
+- Extracted metadata (sender domain, URL domains, keyword frequency)
+- Removed HTML, stopwords, and special characters from body text
+
+### 2. 🧱 Feature Engineering
+
+- Created TF-IDF vectors (uni/bi-grams) for email text
+- Combined with structured metadata (URL count, keyword flags)
+- Used `scipy.hstack()` to merge into a single sparse feature matrix
+
+### 3. 🤖 Model Training & Tuning
+
+- Split data using stratified train-test split to preserve class balance
+- Trained Logistic Regression (baseline) with `liblinear` solver
+- Performed hyperparameter tuning over regularization strength (`C`)
+
+### 4. 📈 Model Evaluation
+
+- Assessed using:
+  - ✅ F1 Score (preferred for imbalanced binary classification)
+  - 🔍 ROC AUC Curve
+  - 📉 Confusion Matrix
+- Visualized:
+  - Top phishing indicators by coefficient weight
+  - Most common phishing sender domains and URLs
+  - Word clouds for phishing vs legitimate emails
+
+---
+
+## 💡 Key Takeaways
+
+- 🧠 Text + metadata fusion dramatically improves classification accuracy
+- 🔍 Visuals help explain model behavior to non-technical stakeholders
+- 🔐 Even simple models like Logistic Regression can be powerful with the right features
+- 🚀 This pipeline is lightweight, interpretable, and production-ready
