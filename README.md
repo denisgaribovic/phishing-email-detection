@@ -2,7 +2,7 @@
 
 # 🛡️ Phishing Email Detection
 
-A production-ready machine learning pipeline that detects phishing emails using both natural language processing (NLP) and metadata-based features. This project simulates how security teams can **automate email threat detection**, minimize human error, and strengthen cybersecurity defenses — powered by interpretable, scalable models.
+A scalable machine learning pipeline that detects phishing emails using both natural language processing (NLP) and metadata-based features. This project simulates how security teams can **automate email threat detection**, minimize human error, and strengthen cybersecurity defenses — powered by interpretable, scalable models.
 
 ---
 
@@ -27,6 +27,12 @@ This project provides a practical, lightweight solution that can be integrated i
 - 📊 Evaluated with Precision, Recall, F1 Score, and ROC AUC to handle imbalanced classes
 - 🔍 Visualized top phishing keywords, URL domains, and sender patterns
 - 🧩 Modular and extensible — adaptable for modern SOC and email filtering systems
+
+---
+
+## 🧪 Full Analysis & Results
+
+All diagrams, model performance metrics, and pipeline visuals are available in the [Jupyter Notebook](https://github.com/denisgaribovic/phishing-email-detection/blob/main/Phishing%20Email%20Detection.ipynb).
 
 ---
 
