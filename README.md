@@ -15,7 +15,7 @@ Phishing remains one of the **top cybersecurity threats**, used to trick users i
 - Enhance email security with ML-powered automation  
 - Train users and improve awareness with real-world examples
 
-This project provides a practical, lightweight solution that can be integrated into existing **email gateways**, **alerting pipelines**, or **user awareness platforms** like KnowBe4.
+This project provides a practical, lightweight solution that can be integrated into existing **email gateways**, **alerting pipelines**, or **user awareness platforms**.
 
 ---
 
